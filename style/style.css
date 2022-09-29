@@ -1,0 +1,261 @@
+@font-face {
+  font-family: "Proxima-Nova";
+  src: url(../assets/Font/Proxima-Nova-Font/Proxima\ Nova\ Font.otf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+body {
+  background-color: #1a1a11;
+  color: white;
+  overflow-x: hidden;
+  font-family: "Proxima-Nova";
+}
+.cut-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 10ch;
+  height: 1.2em;
+  white-space: nowrap;
+}
+.display-f {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:is(.img, .vid) {
+  display: block;
+  max-width: 100%;
+}
+.top-nav-menus {
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+}
+.live-icon {
+  margin-left: -1rem;
+  max-width: 3.8rem;
+}
+:is(.top-nav-menus h6, .top-nav-menus i) {
+  margin-left: -2rem;
+}
+h6 {
+  font-size: 1rem;
+  color: #ccc;
+  position: relative;
+}
+.text-active {
+  color: #fff;
+}
+.text-active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 70%;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  margin: auto;
+  height: 3px;
+  border-radius: 3px;
+  background-color: #fff;
+}
+
+/* 
+  *Acoount Profile Menus ( Right )
+                                  */
+.right-nav-menus {
+  margin: 2rem 0;
+  margin-top: auto;
+  height: 50vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  padding: 0 0.5rem;
+  flex-direction: column;
+  z-index: 99;
+  justify-content: space-between;
+}
+.profile-pict {
+  max-width: 4rem;
+  position: relative;
+}
+.profile-pict img {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.follow-icon {
+  bottom: -0.5rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: red;
+}
+.right-nav-icon {
+  row-gap: 0.5rem;
+  flex-direction: column;
+}
+.right-nav-icon i {
+  font-size: 2em;
+}
+.right-nav-icon span {
+  font-weight: bold;
+}
+/* *End Of Right Nav Menus */
+
+/* 
+  *Bottom Nav Menuss ( Acoount Name Profile )
+                                              */
+.bottom-nav-menus {
+  margin: 2rem 0;
+  padding: 0 0.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: left;
+  height: 10vh;
+  margin-top: auto;
+  align-items: flex-start;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+.profile-name {
+  font-size: 1.2rem;
+}
+.music-icon {
+  overflow-x: hidden;
+  padding: 1rem 0;
+  column-gap: 1rem;
+}
+.music-icon i {
+  position: relative;
+  /* animation: rotate 4s linear infinite; */
+}
+/* .music-icon p {
+  animation: moveToLeft 4s linear infinite;
+} */
+/* *Bottom Nav Menuss ( Acoount Name Profile ) */
+.header-contents {
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding: 24px;
+  justify-content: flex-start;
+  width: 100%;
+  cursor: pointer;
+}
+.header-video {
+  width: max-content;
+  margin: auto;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+}
+.header-contents {
+  display: flex;
+  flex-direction: column;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.header-video {
+  max-width: 25rem;
+  overflow-x: hidden;
+  color: white;
+  /* position: relative; */
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.header-video video {
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  height: 100vh;
+}
+h5 {
+  color: #fff;
+}
+
+/*  
+  *Animatiom 
+            */
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@media (min-height: 30em) {
+  main {
+    display: flex;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+}
+
+.section {
+  color: white;
+  position: relative;
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+@media (min-height: 30em) {
+  .section {
+    height: 100vh;
+  }
+}
+
+@media (min-height: 30em) {
+  .section__content > * {
+    opacity: 0;
+    transform: translate3d(0, 4rem, 0);
+    transition: opacity 800ms var(--delay), transform 800ms cubic-bezier(0.13, 0.07, 0.26, 0.99) var(--delay);
+  }
+}
+
+.is-visible .section__content > * {
+  opacity: 1;
+  transform: translate3d(0, 1rem, 0);
+}
+.is-visible .section__img {
+  opacity: 0.75;
+}
